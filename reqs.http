@@ -1,0 +1,245 @@
+#------------------------------------- EMPLOYEES ----------------------------------------------------------------#
+
+### REGISTER SPECIAL USER #################################################################
+POST http://localhost:9999/specialUsers-api/register-special-user
+Content-Type: application/json
+
+{
+    "specialUsers_id":4,
+    "first_name":"suresh",
+    "last_name":"raina",
+    "email_id":"raina@wal.com",
+    "password":"123"
+}
+
+
+### SPECIAL USER LOGIN ####################################################################
+POST http://localhost:9999/specialUsers-api/special-user-login
+Content-Type: application/json
+
+{
+    "email_id":"virat@wal1.com",
+    "password":"123"
+}
+
+
+### FORGOT PASSWORD ####################################################################
+POST http://localhost:9999/specialUsers-api/forgot-password
+Content-Type: application/json
+
+{
+    "email_id":"aryan.subscription17@gmail.com"
+}
+
+### RESET PASSWORD ####################################################################
+POST http://localhost:9999/specialUsers-api/reset-password/aryan.subscription17@gmail.com
+Content-Type: application/json
+
+{
+    "otp":783578,
+    "password":"aryan"
+}
+
+
+#------------------------------------------ SUPER ADMIN ----------------------------------------------------------------#
+
+### Assign role to Special User ##########################################################
+PUT http://localhost:9999/superAdmin-api/put-role
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImFyeWFuQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTY3ODg1MjAxMiwiZXhwIjoxNjc4ODU4MDEyfQ.raV4VC8nc94i9P0uGz6p3e5L9ZBu3RDCZ2I4WdQVLQc
+Content-Type: application/json
+
+{
+    "specialUsers_id":4,
+    "user_role":"GDO Head"
+}
+
+### Get all Special User details  ##########################################################
+GET http://localhost:9999/superAdmin-api/get-all-special-users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImFyeWFuQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTY3ODg1MTQ3NSwiZXhwIjoxNjc4ODU3NDc1fQ.PU2Qf-GNArITeT57yGHiCeBb7qDUy83FKApsuz2wcdg
+
+### Update Special User details  ###########################################################
+PUT http://localhost:9999/superAdmin-api/update-special-user/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImFyeWFuQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTY3ODg1MTQ3NSwiZXhwIjoxNjc4ODU3NDc1fQ.PU2Qf-GNArITeT57yGHiCeBb7qDUy83FKApsuz2wcdg
+Content-Type: application/json
+
+{
+    "first_name":"Virat",
+    "last_name":"100Kohli",
+    "email_id":"virat@wal1.com"
+}
+
+### Delete Special User details  ###########################################################
+DELETE http://localhost:9999/superAdmin-api/delete-special-user/17
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImFyeWFuQGFiYy5jb20iLCJlbXBfcm9sZSI6IlN1cGVyIEFkbWluIiwiaWF0IjoxNjc4Nzc1NjUxLCJleHAiOjE2Nzg3NzYyNTF9.P2qE0WNjhGSQ0O_URt9OWwaHapaHQL3QJ0huISx9oMA
+
+
+#---------------------------------------------- Admin User ----------------------------------------------------------------#
+
+
+### Get all Projects  ###########################################################
+GET http://localhost:9999/admin-api/get-projects
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImRob25pQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJBZG1pbiIsImlhdCI6MTY3ODg1MjE0MiwiZXhwIjoxNjc4ODU4MTQyfQ.AecSPaZKuoO_zGXsjB6DmqevVoyyrIwCI_q2DMSS9oA
+
+### Get project details by project ID #########################################################
+GET http://localhost:9999/admin-api/get-projects-by-id/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImRob25pQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJBZG1pbiIsImlhdCI6MTY3ODg1MjE0MiwiZXhwIjoxNjc4ODU4MTQyfQ.AecSPaZKuoO_zGXsjB6DmqevVoyyrIwCI_q2DMSS9oA
+
+### Create a new project #############################################################
+POST http://localhost:9999/admin-api/create-project
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImRob25pQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJBZG1pbiIsImlhdCI6MTY3ODg1MjE0MiwiZXhwIjoxNjc4ODU4MTQyfQ.AecSPaZKuoO_zGXsjB6DmqevVoyyrIwCI_q2DMSS9oA
+Content-Type: application/json
+
+{
+    "project_id":1,
+    "project_name":"Project2",
+    "client":"client2",
+    "client_account_manager":"Nike",
+    "project_status":"In Progress",
+    "project_start_date":"2023/12/09",
+    "project_fitness_indicator":"Green",
+    "project_domain":"Machine Learning",
+    "project_type":"Testing",
+    "team_size":3,
+    "gdoHead_id":4,
+    "projectManager_id":2
+}
+
+
+#------------------------------------------- GDO HEAD ----------------------------------------------------------------#
+
+
+### Get projects by GDO Id #################################################################
+GET http://localhost:9999/gdoHead-api/get-projects/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InJhaW5hQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJHRE8gSGVhZCIsImlhdCI6MTY3ODg1MjIyMCwiZXhwIjoxNjc4ODU4MjIwfQ.vaIFI8N2QX4SWKipwKy9nbFHj8--jy2d_4yhsfzZauk
+
+### Get projects by Project Id and GDO Id #################################################################
+GET http://localhost:9999/gdoHead-api/get-projects-by-id/projectId/1/gdoId/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InJhaW5hQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJHRE8gSGVhZCIsImlhdCI6MTY3ODg1MjIyMCwiZXhwIjoxNjc4ODU4MjIwfQ.vaIFI8N2QX4SWKipwKy9nbFHj8--jy2d_4yhsfzZauk
+
+
+### Assign Team to project #################################################################
+POST http://localhost:9999/gdoHead-api/assign-employees
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InJhaW5hQHdhbC5jb20iLCJ1c2VyX3JvbGUiOiJHRE8gSGVhZCIsImlhdCI6MTY3ODg1MjU0MiwiZXhwIjoxNjc4ODU4NTQyfQ.Gi__0QcO_KVNkwH9m1Oyh0xWfdkNXHjxBdskYX4SU70
+Content-Type: application/json
+
+{
+    "resource_name":"emp10",
+    "project_role":"Tester",
+    "start_date":"2012/12/12",
+    "status":"Active",
+    "billing_status":"Billed",
+    "customer_exposed_status":"No",
+    "allocation_type":"Permanent",
+    "project_id":1,
+    "emp_id":2
+}
+
+### Update employee details in the team #################################################################
+
+PUT http://localhost:9999/gdoHead-api/update-employees/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImRob25pQGFiYy5jb20iLCJlbXBfcm9sZSI6IkdETyBIZWFkIiwiaWF0IjoxNjc4Nzc2NzI4LCJleHAiOjE2Nzg3NzczMjh9.nbsyCvyfTktdP3iZgy7rboQoinuDg7DNDghlhE2-jIA
+Content-Type: application/json
+
+{
+    "resource_name":"Suresh",
+    "project_role":"Developer",
+    "start_date":"2012/12/12",
+    "status":"Active",
+    "billing_status":"Billed",
+    "customer_exposed_status":"No",
+    "allocation_type":"Permanent",
+    "project_id":1,
+    "emp_id":5
+}
+
+### Delete employee details from the team #################################################################
+DELETE http://localhost:9999/gdoHead-api/delete-employees/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6ImRob25pQGFiYy5jb20iLCJlbXBfcm9sZSI6IkdETyBIZWFkIiwiaWF0IjoxNjc4Nzc2NzI4LCJleHAiOjE2Nzg3NzczMjh9.nbsyCvyfTktdP3iZgy7rboQoinuDg7DNDghlhE2-jIA
+
+
+
+#------------------------------------------ PROJECT MANAGER ----------------------------------------------------------------#
+
+### Get project by project manager id #################################################################
+GET http://localhost:9999/projectManager-api/get-projects/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+
+### Get project by project manager id and Project id #################################################################
+GET http://localhost:9999/projectManager-api/get-projects-by-id/projectId/1/projectManagerId/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+
+### Create Project Update #################################################################
+POST http://localhost:9999/projectManager-api/create-project-updates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+Content-Type: application/json
+
+{
+    "date":"2023-02-02",
+    "project_status_update":"Project is planed",
+    "schedule_status":"Green",
+    "resourcing_status":"Amber",
+    "quality_status":"Green",
+    "waiting_for_client_inputs":"Yes",
+    "project_id":1,
+    "emp_id":2
+}
+
+### Update project updates #################################################################
+PUT http://localhost:9999/projectManager-api/update-project-updates/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QGFiYy5jb20iLCJlbXBfcm9sZSI6IlByb2plY3QgTWFuYWdlciIsImlhdCI6MTY3ODc5NDIxNSwiZXhwIjoxNjc4Nzk0ODE1fQ.hB_8k-MnI1luBIWsTwHjiWZQ7p0NK5X5ip3aOLi4ONg
+Content-Type: application/json
+
+{
+    "date":"2023-02-02",
+    "project_status_update":"Project is planed",
+    "schedule_status":"Green",
+    "resourcing_status":"Amber",
+    "quality_status":"Green",
+    "waiting_for_client_inputs":"Yes",
+    "project_id":1,
+    "emp_id":3
+}
+
+### Delete project updates #################################################################
+DELETE http://localhost:9999/projectManager-api/delete-project-updates/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+
+### Create Project Concern #################################################################
+POST http://localhost:9999/projectManager-api/create-project-concern
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+Content-Type: application/json
+
+{
+    "project_name":"1234",
+    "concern_description":"It has a small concern",
+    "concern_raised_by":"Virat",
+    "concern_raised_date":"2023-12-12",
+    "concern_severity":"Medium",
+    "concern_from_client":"No",
+    "concern_status":"Raised",
+    "concern_mitigated_date":"2023-12-12",
+    "project_id":1,
+    "emp_id":2
+}
+
+### Update Project Concern #################################################################
+PUT http://localhost:9999/projectManager-api/update-project-concern/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
+Content-Type: application/json
+
+{
+    "project":"1232",
+    "concern_description":"1313",
+    "concern_raised_by":"324",
+    "concern_raised_date":"2023-12-12",
+    "concern_severity":"2342",
+    "concern_from_client":"424224",
+    "concern_status":"4222",
+    "concern_mitigated_date":"2023-12-12",
+    "project_id":1,
+    "emp_id":1
+}
+
+### Update Project Concern #################################################################
+DELETE http://localhost:9999/projectManager-api/delete-project-concern/:id
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF9pZCI6InZpcmF0QHdhbDEuY29tIiwidXNlcl9yb2xlIjoiUHJvamVjdCBNYW5hZ2VyIiwiaWF0IjoxNjc4ODUyNjc1LCJleHAiOjE2Nzg4NTg2NzV9.domtILbpUyHSz0T-09H14JWox24AmxdJoDRrSCm5DUM
